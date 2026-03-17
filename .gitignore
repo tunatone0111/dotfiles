@@ -1,0 +1,12 @@
+.DS_Store
+*.bak
+*.swp
+*.swo
+*~
+
+# Sensitive files
+.env
+.env.*
+*.pem
+*.key
+id_rsa*
