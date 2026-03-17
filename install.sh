@@ -23,6 +23,11 @@ else
   echo "Warning: scientific-skills-repo not found. Run: git submodule update --init --recursive"
 fi
 
+# --- ccstatusline settings ---
+echo "Installing ccstatusline settings"
+mkdir -p "$HOME/.config/ccstatusline"
+cp "$DOTFILES_DIR/.config/ccstatusline/settings.json" "$HOME/.config/ccstatusline/settings.json"
+
 # --- Add more sections below as needed ---
 
 echo "Done."
