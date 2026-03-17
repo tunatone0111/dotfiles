@@ -3,10 +3,25 @@ set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# --- Init submodules (for fresh clones) ---
+git -C "$DOTFILES_DIR" submodule update --init --recursive
+
 # --- Claude Code settings ---
-echo "Installing .claude/ -> $HOME/.claude/"
+echo "Installing .claude/settings.json"
 mkdir -p "$HOME/.claude"
-cp -r "$DOTFILES_DIR/.claude/." "$HOME/.claude/"
+cp "$DOTFILES_DIR/.claude/settings.json" "$HOME/.claude/settings.json"
+
+# --- Claude Scientific Skills ---
+SKILLS_SRC="$DOTFILES_DIR/.claude/scientific-skills-repo/scientific-skills"
+SKILLS_DST="$HOME/.claude/skills"
+
+if [ -d "$SKILLS_SRC" ]; then
+  echo "Installing scientific skills -> $SKILLS_DST/"
+  mkdir -p "$SKILLS_DST"
+  cp -r "$SKILLS_SRC"/. "$SKILLS_DST/"
+else
+  echo "Warning: scientific-skills-repo not found. Run: git submodule update --init --recursive"
+fi
 
 # --- Add more sections below as needed ---
 
