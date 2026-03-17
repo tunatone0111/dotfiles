@@ -25,6 +25,17 @@
     "context7@claude-plugins-official": true,
     "github@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
+    "slack@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "clarify@team-attention-plugins": true,
+    "session-wrap@team-attention-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "team-attention-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "team-attention/plugins-for-claude-natives"
+      }
+    }
   }
 }
